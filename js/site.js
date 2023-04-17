@@ -1,118 +1,134 @@
-function add() {
-  //get the numbers
-  let numberOne = document.getElementById("firstNumber").value;
-  let numberTwo = document.getElementById("secondNumber").value;
+var events = [
+  {
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 240000,
+    date: "06/01/2017",
+  },
+  {
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 250000,
+    date: "06/01/2018",
+  },
+  {
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 257000,
+    date: "06/01/2019",
+  },
+  {
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 130000,
+    date: "06/01/2017",
+  },
+  {
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 140000,
+    date: "06/01/2018",
+  },
+  {
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 150000,
+    date: "06/01/2019",
+  },
+  {
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 40000,
+    date: "06/01/2017",
+  },
+  {
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 45000,
+    date: "06/01/2018",
+  },
+  {
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 50000,
+    date: "06/01/2019",
+  },
+];
 
-  //turn them into integers
-  numberOne = parseFloat(numberOne);
-  numberTwo = parseFloat(numberTwo);
+//build dropdown for specific cities
+function buildDropdown() {
+    let dropdownMenu = document.getElementById('eventDropdown');
 
-  //add the first and second numbers
-  let sum = numberOne + numberTwo;
+    dropdownMenu.innerHTML = '';
 
-  //display the result
-  let resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = sum;
-}
+    let currentEvents = events; //TODO - get these from storage
 
-function subtract() {
-  let numberOne = document.getElementById("firstNumber").value;
-  let numberTwo = document.getElementById("secondNumber").value;
+    let cityNames = currentEvents.map(
+        function (event) {
+          return event.city;
+        }
+    );
+    //let cityNames = currentEvents.map(event => event.city);   **same as above
 
-  numberOne = parseFloat(numberOne);
-  numberTwo = parseFloat(numberTwo);
+    let citiesSet = new Set(cityNames);
+    let distinctCities = [...citiesSet]; //creates this: ['Charlotte', 'San Diego', 'New York']
 
-  let difference = numberOne - numberTwo;
+    const dropdownTemplate = document.getElementById('dropdownItemTemplate');
 
-  let resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = difference;
-}
+    //copy the template
+    let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
 
-function multiply() {
-  let numberOne = document.getElementById("firstNumber").value;
-  let numberTwo = document.getElementById("secondNumber").value;
+    //make our changes
+    let dropdownItemLink = dropdownItemNode.querySelector('a');
+    dropdownItemLink.innerText = 'All Cities';
+    dropdownItemLink.setAttribute('data-string', 'All');
 
-  numberOne = parseFloat(numberOne);
-  numberTwo = parseFloat(numberTwo);
-
-  let product = numberOne * numberTwo;
-
-  let resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = product;
-}
-
-function divide() {
-  let numberOne = document.getElementById("firstNumber").value;
-  let numberTwo = document.getElementById("secondNumber").value;
-
-  numberOne = parseFloat(numberOne);
-  numberTwo = parseFloat(numberTwo);
-
-  let quotient = numberOne / numberTwo;
-
-    if (numberTwo == 0) {
-        quotient = "Cannot divide by zero!";
-    }
-
-  let resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = quotient;
-}
-
-function sumAll() {
-    let numberString = document.getElementById('numberSeries').value;
-    //numberString = '12345'
-
-    let numberArray = numberString.split('')
-    //numberArray = ['1', '2', '3', '3', '4', '5']
+    //add our copy to the page
+    dropdownMenu.appendChild(dropdownItemNode);
     
-    let sum = 0; //running total
+    for (let i = 0; i < distinctCities.length; i++) {
+      //get the city name
+      let cityName = distinctCities[i];
 
-    for (let i = 0; i < numberArray.length; i++) {
-        
-        let currentNumber = numberArray[i];
-        //currentNumber = '1'
-        
-        currentNumber = parseInt(currentNumber);
-        //currentNumber = 1
+      //generate a dropdown element
+      let itemNode = document.importNode(dropdownTemplate.content, true);
+      let anchorTag = itemNode.querySelector('a');
+      anchorTag.innerText = cityName;
+      anchorTag.setAttribute('data-string', cityName);
 
-        sum = sum + currentNumber;
+      //append it to the dropdown menu
+      dropdownMenu.appendChild(itemNode);
     }
 
-    let resultsDiv = document.getElementById('results');
-    resultsDiv.innerText = sum;
+    displayEventData(currentEvents);
 }
 
-function multiplyAll() {
-  let numberString = document.getElementById('numberSeries').value;
-  //numberString = '12345'
+function displayEventData(currentEvents) {
 
-  let numberArray = numberString.split('');
-  //numberArray = ['1', '2', '3', '3', '4', '5']
+    const eventTable = document.getElementById('eventTable');
+    const template = document.getElementById('tableRowTemplate');
 
-  let sum = 1; //running total
+    eventTable.innerHTML = '';
 
-  for (let i = 0; i < numberArray.length; i++) {
-    let currentNumber = numberArray[i];
-    //currentNumber = '1'
+    for (let i = 0; i < currentEvents.length; i++) {
+        let event = currentEvents[i];
+        let tableRow = document.importNode(template.content, true);
 
-    currentNumber = parseInt(currentNumber);
-    //currentNumber = 1
-
-    sum = sum * currentNumber;
-  }
-
-  let resultsDiv = document.getElementById('results');
-  resultsDiv.innerText = sum;
-}
-
-function minimum() {
-
-}
-
-function maximum() {
-
-}
-
-function average() {
-
+        tableRow.querySelector('[data-id="event"]').textContent = event.event;
+        tableRow.querySelector('[data-id="city"]').textContent = event.city;
+        tableRow.querySelector('[data-id="state"]').textContent = event.state;
+        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
+        tableRow.querySelector('[data-id="date"]').textContent = event.date;
+  
+        eventTable.appendChild(tableRow);
+    }
 }
