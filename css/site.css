@@ -1,0 +1,105 @@
+:root {
+    /* fonts */
+    --rd-title-font: 'Bebas Neue', sans-serif;
+    --rd-subtitle-font: 'Fira Sans', sans-serif;
+    --rd-heading-font: 'Bebas Neue', sans-serif;
+    --rd-body-font: 'Roboto', sans-serif;
+    
+    /* colors */
+    --rd-primary-color: #418FBF; 
+    --rd-secondary-color: #79B4D9; 
+    --rd-highlight-color: #C3E0E5; 
+    --rd-dark-color: #274472; 
+    --rd-light-color: #deeefb;
+    --rd-background-color: #A3C9D9;
+    --rd-oceangreen-color: #039485; 
+    --rd-sand-color: #C9B48B;
+    
+    /* navbar colors */
+    --rd-nav-bg-color: var(--rd-dark-color);
+    --rd-nav-toggler-color: var(--rd-highlight-color);
+    --rd-nav-toggler-glow: var(--rd-highlight-color);
+
+    /* form colors */
+    --rd-formfocus-border-color: var(--rd-secondary-color);
+    --rd-formfocus-shadow: var(--rd-primary-color);
+    --rd-form-background-color: var(--rd-background-color);
+
+    /* text styles */
+    --rd-title-color: var(--rd-dark-color);
+    --rd-font-size: 1.2rem; /* rem is root element line height, 1 is default */
+    --rd-font-weight: 400; /* default is typically 400-500 */
+    --rd-line-height: 1.5rem; /* how large the line is that the text wraps in, needs to be bigger than your font size */
+}
+
+/* sticky footer*/
+html,body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--rd-body-font);
+    font-size: var(--rd-font-size);
+    font-weight: var(--rd-font-weight);
+    line-height: var(--rd-line-height);
+    color: var(--rd-dark-color);
+    background-color: var(--rd-background-color);
+}
+main {
+    flex-grow: 1;
+}
+footer {
+    flex-shrink: 0;
+}
+/* end sticky footer*/
+
+.checklist {
+    list-style-type: none;
+}
+.checklist>li i {
+    color:var(--rd-oceangreen-color);
+    padding-right: .5rem;
+}
+
+.devIcons {
+    font-size: 3rem;
+    padding-left: .5rem;
+}
+
+.appLogo {
+    max-width: 400px;
+}
+
+/* start navbar */
+.navbar-toggler-rd {
+    color: var(--rd-nav-toggler-color);
+    font-size: 1.5rem;
+}
+
+.navbar-toggler {
+    color: var(--rd-nav-toggler-glow);
+    /*border-color: */
+}
+
+#mainNav {
+    background: var(--rd-nav-bg-color);
+}
+/* end navbar */
+
+/* start footer */
+.socialicons {
+    font-size: 2rem;
+    color: var(--rd-secondary-color);
+    transition: color 0.5s ease;
+}
+
+.socialicons:hover {
+    color: var(--rd-highlight-color);
+}
+
+footer {
+    background: var(--rd-nav-bg-color);
+}
+/* end footer */
