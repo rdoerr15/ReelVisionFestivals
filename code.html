@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Calc</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Stat Tracker</title>
 
     <!--bootsrap css-->
     <link
@@ -37,124 +37,432 @@
     <link rel="stylesheet" href="/css/prism.css" />
     <link rel="stylesheet" href="/css/site.css" />
 
-
     <!--favicon-->
     <link rel="shortcut icon" href="/img/logoLightBG.jpg" type="image/x-icon" />
+  </head>
 
-</head>
-
-<body data-bs-spy="scroll" data-bs-target="#mainNav">
+  <body data-bs-spy="scroll" data-bs-target="#mainNav">
     <header>
-           <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
-               <div class="container">
-                   <a class="navbar-brand" href="/index.html">
-                        <img src="/img/logoDarkBG.jpg" height="50" />
-                        JavaScript Calculator
-                    </a>
-                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                       aria-label="Toggle navigation">
-                       <span class="navbar-toggler-icon"></span>
-                   </button>
-                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                           <li class="nav-item">
-                               <a class="nav-link" aria-current="page" href="/index.html">Home</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="/app.html">The App</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link active" href="/code.html">The Code</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="https://github.com">The Repo</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="https://ryandoerr-portfolio.netlify.app/">About</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="#">Blog</a> <!--CHANGE THIS LINK-->
-                           </li>
-                       </ul>
-                   </div>
-               </div>
-           </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">
+            <img src="/img/logoDarkBG.jpg" height="50" />
+            Event Stat Tracker
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/app.html">The App</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/code.html">The Code</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com">The Repo</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://ryandoerr-portfolio.netlify.app/"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+                <!--CHANGE THIS LINK-->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="container mt-3">
-        <h1 class="border-bottom border-2 border-dark">The Code</h1> <!--h1 is block element-->
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                <pre class="line-numbers">
+      <h1 class="border-bottom border-2 border-dark">The Code</h1>
+      <!--h1 is block element-->
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <pre class="line-numbers">
                     <code class="language-js">
-function displayMessage() {
-    let msg = document.getElementById('message').value;
-    //alert(msg);
+var events = [
+  {
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 240000,
+    date: "06/01/2017",
+  },
+  {
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 250000,
+    date: "06/01/2018",
+  },
+  {
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 257000,
+    date: "06/01/2019",
+  },
+  {
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 130000,
+    date: "06/01/2017",
+  },
+  {
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 140000,
+    date: "06/01/2018",
+  },
+  {
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 150000,
+    date: "06/01/2019",
+  },
+  {
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 40000,
+    date: "06/01/2017",
+  },
+  {
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 45000,
+    date: "06/01/2018",
+  },
+  {
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 50000,
+    date: "06/01/2019",
+  },
+];
 
-    Swal.fire(
-        {
-            backdrop: false,
-            title: 'App Name',
-            text: msg
+//build dropdown for specific cities
+function buildDropdown() {
+    let dropdownMenu = document.getElementById('eventDropdown');
+
+    dropdownMenu.innerHTML = '';
+
+    let currentEvents = getEventData(); 
+
+    let cityNames = currentEvents.map(
+        function (event) {
+          return event.city;
         }
     );
+    //let cityNames = currentEvents.map(event => event.city);   **same as above
+
+    let citiesSet = new Set(cityNames); //sets do not allow repeated values 
+    let distinctCities = [...citiesSet]; //creates this: ['Charlotte', 'San Diego', 'New York']
+
+    const dropdownTemplate = document.getElementById('dropdownItemTemplate');
+
+    //copy the template, importNode allows us to make that copy
+    let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
+
+    //make our changes
+    let dropdownItemLink = dropdownItemNode.querySelector('a');
+    dropdownItemLink.innerText = 'All Cities';
+    dropdownItemLink.setAttribute('data-string', 'All');
+
+    //add our copy to the page
+    dropdownMenu.appendChild(dropdownItemNode);
+    
+    for (let i = 0; i < distinctCities.length; i++) {
+      //get the city name
+      let cityName = distinctCities[i];
+
+      //generate a dropdown element
+      let itemNode = document.importNode(dropdownTemplate.content, true);
+      let anchorTag = itemNode.querySelector('a');
+      anchorTag.innerText = cityName;
+      anchorTag.setAttribute('data-string', cityName);
+
+      //append it to the dropdown menu
+      dropdownMenu.appendChild(itemNode);
+    }
+
+    displayEventData(currentEvents);
+    displayStats(currentEvents);
+    document.getElementById('location').innerText = 'All Events';
+}
+
+function displayEventData(currentEvents) {
+
+    const eventTable = document.getElementById('eventTable');
+    const template = document.getElementById('tableRowTemplate');
+
+    eventTable.innerHTML = '';
+
+    for (let i = 0; i < currentEvents.length; i++) {
+        let event = currentEvents[i];
+        let tableRow = document.importNode(template.content, true);
+
+        tableRow.querySelector('[data-id="event"]').textContent = event.event;
+        tableRow.querySelector('[data-id="city"]').textContent = event.city;
+        tableRow.querySelector('[data-id="state"]').textContent = event.state;
+        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance.toLocaleString();
+        tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
+  
+        eventTable.appendChild(tableRow);
+    }
+}
+
+function calculateStats(currentEvents) {
+    let total = 0;
+    let avg = 0;
+    let most = 0;
+    let least = currentEvents[0].attendance;
+
+    for (let i = 0; i < currentEvents.length; i++) {
+        let currentAttendance = currentEvents[i].attendance;
+
+        total += currentAttendance;
+
+        if (currentAttendance > most) {
+          most = currentAttendance;
+        }
+
+        if (currentAttendance < least) {
+          least = currentAttendance;
+        }
+    }
+    avg = total / currentEvents.length;
+
+    let stats = {
+      total: total,
+      average: avg,
+      most: most,
+      least: least
+    }
+
+    return stats;
+}
+
+function displayStats(currentEvents) {
+    let statistics = calculateStats(currentEvents);
+
+    //get the elements where the stats go
+    //set their text to be the correct stat from statistics
+    document.getElementById('total').textContent = statistics.total.toLocaleString();
+
+   //Math.round rounds up or down to a whole number, toLocalString() removes decimals and adds commas
+    document.getElementById('average').textContent = Math.round(statistics.average).toLocaleString(); 
+
+    document.getElementById('most').textContent = statistics.most.toLocaleString();
+    document.getElementById('least').textContent = statistics.least.toLocaleString();
+}
+
+function getEventData() {
+    let data = localStorage.getItem('rdSuperDogEventData2023');
+
+    if (data == null) {
+        localStorage.setItem('rdSuperDogEventData2023', JSON.stringify(events));   //JSON = javascript object notation
+    }
+
+    let currentEvents = data == null ? events : JSON.parse(data); 
+
+    // if statement below is same as turnary statement above
+    // if (data == null) {
+    //  currentEvents = events;
+    //} else {
+    //  currentEvents = JSON.parse(data);
+    //}
+
+    return currentEvents;
+}     
+
+function viewFilteredEvents(dropdownItem) {
+    let cityName = dropdownItem.getAttribute('data-string');
+
+    //get all my events
+    let allEvents = getEventData();
+
+    if (cityName == 'All') {
+        displayEventData(allEvents);
+        displayEventData(allEvents);
+        document.getElementById('location').innerText = 'All Events';
+    
+        return; //return in this instance will end the function if cityName does not equal All
+      }  
+
+      //filter those events to just the selected city
+      let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase());
+      // let filteredEvents = allEvents.filter(
+      //    function (event)) {
+      //    return event.city.toLowerCase() == cityName.toLowerCase();
+      //}
+
+      //display the stats for those events
+      displayStats(filteredEvents);
+
+      //change the stats header
+      document.getElementById('location').innerText = cityName;
+
+      //display only those events in the table
+      displayEventData(filteredEvents);
+    
+}
+
+function saveNewEvent() {
+    //get the form input values
+    let name = document.getElementById('newEventName').value;
+    let city = document.getElementById('newEventCity').value;
+
+    let stateSelect = document.getElementById('newEventState');
+    let stateIndex = stateSelect.selectedIndex;
+    let state = stateSelect.options[stateIndex].text;
+
+    let attendance = parseInt(document.getElementById('newEventAttendance').value, 10);
+
+    let dateValue = document.getElementById("newEventDate").value;
+    dateValue = new Date(dateValue);
+    let date = dateValue.toLocaleDateString();
+
+    //create a new event object
+    let newEvent = {
+      event: name,
+      city: city,
+      state: state,
+      attendance: attendance,
+      date: date,
+    };
+
+    //add it to the array of current events
+    let events = getEventData();
+    events.push(newEvent);
+
+    //save the array with the new event
+    localStorage.setItem('rdSuperDogEventData2023', JSON.stringify(events));
+
+    buildDropdown();
 }
                     </code>
                 </pre>
-            </div>
-            <div class="col-12 col-lg-4">
-                <p>The code is structured in one function</p>
-                <h5>displayMessage</h5>
-                <p>Prints out the message</p>
-            </div>
         </div>
+        <div class="col-12 col-lg-4">
+          <p>
+            This code is structured into seven separate functions. The array of
+            event data was provided by the event company.
+          </p>
+          <h5>buildDropdown</h5>
+          <p>
+            This function starts by pulling the dropdownMenu element from the
+            HTML document. We want to be able to add new events to this
+            application, so it is given a blank canvas to work with by defining
+            dropdownMenu as an empty string. Because we want our dropdown menu
+            to only include city names, we retrieve them from the event array by
+            using the map method. Next, we create a set of the cities to ensure
+            we have no duplicate names. That set is then put into an array so it
+            can be accessed later by the for loop. Next, the dropdown template
+            is copied from the HTML document. The importNode method allows for
+            this happen. Furthermore, the querySelector picks the specific
+            element where the dropdownItemLink should be placed. Then, the
+            appendChild method allows our copy to be put on the web page. Next,
+            a for loop is created to access a specific city from the array of
+            distinctCities, which will then be placed in the anchor tag of the
+            template. The appendChild method is then used again to attach it the
+            dropdownMenu. Finally, since this is the function that runs upon
+            loading the web page, a couple functions are called to display the
+            stats and event data tables.
+          </p>
+          <h5>displayEventData</h5>
+          <p>
+            This function starts by retrieving the event table and table row
+            template from the HTML document. They are defined as constant
+            variables since they will never be changed. A for loop is then
+            craeted so each event can be accessed from the origianl event array.
+            QuerySelector then grabs each property and assigns them to their own
+            rows in the table. AppendChild method is then utilized to place
+            those rows into the event table on the webpage.
+          </p>
+          <h5>calculateStats</h5>
+          <p>This function is created to calculate specific stats that we want to add to the stats table. These stats are computed by utilizing for loops and if else statements.</p>
+          <h5>displayStats</h5>
+          <p>This function is what allows the stats to be displayed on the page, so the previous calculateStats function is called. The stat properties are then retrieved through a specific ID from the HTML document.</p>
+          <h5>getEventData</h5>
+          <p>This function is created to get the data from the user's local browser storage, then converts it to a string through the JSON.stringify method </p>
+          <h5>viewFilteredEvents</h5>
+          <p>This function is created to allow the user to filter the stats table by city. The getEventData is called to access all the events. If the user wants to see stats for all cities, then the code will return the displayEventData function. If the user wants to see a specific city, the code will continue past the if statment and call the displayStats function with a paramter of filtered events.</p>
+          <h5>saveNewEvent</h5>
+          <p>This function is created to allow the user to add new events to the data table. ID's are grabbed from the HTML document, then defined as variables so they can be combined into one object. New events are then given to the getEventData function through the push method. These added events are then stored on the browser's local storage. Finally, buildDropdown is called since this acts as the entry point function.</p>
+        </div>
+      </div>
     </main>
 
     <footer class="mt-3">
-        <div class="container">
-            <div
-                class="py-3 row row-cols-1 row-cols-md-3 gy-3 align-items-center text-center">
-            <div class="col">
+      <div class="container">
+        <div
+          class="py-3 row row-cols-1 row-cols-md-3 gy-3 align-items-center text-center"
+        >
+          <div class="col">
             <img src="/img/logoDarkBG.jpg" height="50" />
-            </div>
-            <div class="col text-md-end">
-                <a href="https://linkedin.com/my-profile"
-                ><i class="socialicons bi bi-linkedin p-2"></i
-                ></a>
-                <a href="https://github.com/my-profile"
-                ><i class="socialicons bi bi-github p-2"></i
-                ></a>
-                <a href="https://twitter.com/my-profile"
-                ><i class="socialicons bi bi-twitter p-2"></i
-                ></a>
-                <a href="https://youtube.com/my-profile"
-                ><i class="socialicons bi bi-youtube p-2"></i
-                ></a>
-            </div>
-            <div class="col text-light order-md-first text-md-start">
-                &copy;2023 Ryan Doerr
-            </div>
-            </div>
+          </div>
+          <div class="col text-md-end">
+            <a href="https://linkedin.com/my-profile"
+              ><i class="socialicons bi bi-linkedin p-2"></i
+            ></a>
+            <a href="https://github.com/my-profile"
+              ><i class="socialicons bi bi-github p-2"></i
+            ></a>
+            <a href="https://twitter.com/my-profile"
+              ><i class="socialicons bi bi-twitter p-2"></i
+            ></a>
+            <a href="https://youtube.com/my-profile"
+              ><i class="socialicons bi bi-youtube p-2"></i
+            ></a>
+          </div>
+          <div class="col text-light order-md-first text-md-start">
+            &copy;2023 Ryan Doerr
+          </div>
         </div>
+      </div>
     </footer>
-</body>
+  </body>
 
-    <!--bootstrap js-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+  <!--bootstrap js-->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"
+  ></script>
 
-    <script src="/js/prism.js"></script>
-    <script>
-        Prism.plugins.NormalizeWhitespace.setDefaults({
-            'remove-trailing': true,
-            'remove-indent': true,
-            'left-trim': true,
-            'right-trim': true
-        })
-    </script>
-
+  <script src="/js/prism.js"></script>
+  <script>
+    Prism.plugins.NormalizeWhitespace.setDefaults({
+      "remove-trailing": true,
+      "remove-indent": true,
+      "left-trim": true,
+      "right-trim": true,
+    });
+  </script>
 </html>
