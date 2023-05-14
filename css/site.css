@@ -12,7 +12,7 @@
     --rd-dark-color: #274472; 
     --rd-light-color: #deeefb;
     --rd-background-color: #A3C9D9;
-    --rd-oceangreen-color: #039485; 
+    --rd-oceangreen-color: #19BFB7; 
     --rd-sand-color: #C9B48B;
     
     /* navbar colors */
@@ -59,7 +59,7 @@ footer {
     list-style-type: none;
 }
 .checklist>li i {
-    color:var(--rd-oceangreen-color);
+    color: black;
     padding-right: .5rem;
 }
 
@@ -70,6 +70,19 @@ footer {
 
 .appLogo {
     max-width: 400px;
+    border-radius: 25px;
+}
+
+.navLogo {
+    border-radius: 10px;
+}
+
+.btn-dark {
+    transition: all .5s;
+}
+
+.btn-secondary {
+    transition: all .5s;
 }
 
 /* start navbar */

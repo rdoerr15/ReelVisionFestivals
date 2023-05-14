@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Stat Tracker</title>
+    <title>ReelVision</title>
 
     <!--bootsrap css-->
     <link
@@ -38,7 +38,11 @@
     <link rel="stylesheet" href="/css/site.css" />
 
     <!--favicon-->
-    <link rel="shortcut icon" href="/img/logoLightBG.jpg" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/img/ReelVisionNavLogo.png"
+      type="image/x-icon"
+    />
   </head>
 
   <body data-bs-spy="scroll" data-bs-target="#mainNav">
@@ -46,8 +50,8 @@
       <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
         <div class="container">
           <a class="navbar-brand" href="/index.html">
-            <img src="/img/logoDarkBG.jpg" height="50" />
-            Event Stat Tracker
+            <img src="/img/ReelVisionNavLogo.png" class="navLogo" height="50" />
+            ReelVision
           </a>
           <button
             class="navbar-toggler"
@@ -102,64 +106,64 @@
                     <code class="language-js">
 var events = [
   {
-    event: "ComicCon",
-    city: "New York",
-    state: "New York",
+    event: "ReelVision",
+    city: "Charleston",
+    state: "Charleston",
     attendance: 240000,
     date: "06/01/2017",
   },
   {
-    event: "ComicCon",
-    city: "New York",
-    state: "New York",
+    event: "ReelVision",
+    city: "Charleston",
+    state: "Charleston",
     attendance: 250000,
     date: "06/01/2018",
   },
   {
-    event: "ComicCon",
-    city: "New York",
-    state: "New York",
+    event: "ReelVision",
+    city: "Charleston",
+    state: "Charleston",
     attendance: 257000,
     date: "06/01/2019",
   },
   {
-    event: "ComicCon",
-    city: "San Diego",
-    state: "California",
+    event: "ReelVision",
+    city: "Denver",
+    state: "Colorado",
     attendance: 130000,
     date: "06/01/2017",
   },
   {
-    event: "ComicCon",
-    city: "San Diego",
-    state: "California",
+    event: "ReelVision",
+    city: "Denver",
+    state: "Colorado",
     attendance: 140000,
     date: "06/01/2018",
   },
   {
-    event: "ComicCon",
-    city: "San Diego",
-    state: "California",
+    event: "ReelVision",
+    city: "Denver",
+    state: "Colorado",
     attendance: 150000,
     date: "06/01/2019",
   },
   {
-    event: "HeroesCon",
-    city: "Charlotte",
+    event: "CineFest",
+    city: "Wilmington",
     state: "North Carolina",
     attendance: 40000,
     date: "06/01/2017",
   },
   {
-    event: "HeroesCon",
-    city: "Charlotte",
+    event: "CineFest",
+    city: "Wilmington",
     state: "North Carolina",
     attendance: 45000,
     date: "06/01/2018",
   },
   {
-    event: "HeroesCon",
-    city: "Charlotte",
+    event: "CineFest",
+    city: "Wilmington",
     state: "North Carolina",
     attendance: 50000,
     date: "06/01/2019",
@@ -182,7 +186,7 @@ function buildDropdown() {
     //let cityNames = currentEvents.map(event => event.city);   **same as above
 
     let citiesSet = new Set(cityNames); //sets do not allow repeated values 
-    let distinctCities = [...citiesSet]; //creates this: ['Charlotte', 'San Diego', 'New York']
+    let distinctCities = [...citiesSet]; //creates this: ['Wilmington', 'Denver', 'Charleston']
 
     const dropdownTemplate = document.getElementById('dropdownItemTemplate');
 
@@ -283,10 +287,10 @@ function displayStats(currentEvents) {
 }
 
 function getEventData() {
-    let data = localStorage.getItem('rdSuperDogEventData2023');
+    let data = localStorage.getItem('ReelVisionData');
 
     if (data == null) {
-        localStorage.setItem('rdSuperDogEventData2023', JSON.stringify(events));   //JSON = javascript object notation
+        localStorage.setItem('ReelVisionData', JSON.stringify(events));   //JSON = javascript object notation
     }
 
     let currentEvents = data == null ? events : JSON.parse(data); 
@@ -362,7 +366,7 @@ function saveNewEvent() {
     events.push(newEvent);
 
     //save the array with the new event
-    localStorage.setItem('rdSuperDogEventData2023', JSON.stringify(events));
+    localStorage.setItem('ReelVisionData', JSON.stringify(events));
 
     buildDropdown();
 }
@@ -390,8 +394,8 @@ function saveNewEvent() {
             appendChild method allows our copy to be put on the web page. Next,
             a for loop is created to access a specific city from the array of
             distinctCities, which will then be placed in the anchor tag of the
-            template. The appendChild method is then used again to attach it the
-            dropdownMenu. Finally, since this is the function that runs upon
+            template. The appendChild method is then used again to attach it to
+            the dropdownMenu. Finally, since this is the function that runs upon
             loading the web page, a couple functions are called to display the
             stats and event data tables.
           </p>
@@ -406,15 +410,43 @@ function saveNewEvent() {
             those rows into the event table on the webpage.
           </p>
           <h5>calculateStats</h5>
-          <p>This function is created to calculate specific stats that we want to add to the stats table. These stats are computed by utilizing for loops and if else statements.</p>
+          <p>
+            This function is created to calculate specific stats that we want to
+            add to the stats table. These stats are computed by utilizing for
+            loops and if else statements.
+          </p>
           <h5>displayStats</h5>
-          <p>This function is what allows the stats to be displayed on the page, so the previous calculateStats function is called. The stat properties are then retrieved through a specific ID from the HTML document.</p>
+          <p>
+            This function is what allows the stats to be displayed on the page,
+            so the previous calculateStats function is called. The stat
+            properties are then retrieved through a specific ID from the HTML
+            document.
+          </p>
           <h5>getEventData</h5>
-          <p>This function is created to get the data from the user's local browser storage, then converts it to a string through the JSON.stringify method </p>
+          <p>
+            This function is created to get the data from the user's local
+            browser storage, then converts it to a string through the
+            JSON.stringify method.
+          </p>
           <h5>viewFilteredEvents</h5>
-          <p>This function is created to allow the user to filter the stats table by city. The getEventData is called to access all the events. If the user wants to see stats for all cities, then the code will return the displayEventData function. If the user wants to see a specific city, the code will continue past the if statment and call the displayStats function with a paramter of filtered events.</p>
+          <p>
+            This function is created to allow the user to filter the stats table
+            by city. The getEventData is called to access all the events. If the
+            user wants to see stats for all cities, then the code will return
+            the displayEventData function. If the user wants to see a specific
+            city, the code will continue past the if statment and call the
+            displayStats function with a paramter of filtered events.
+          </p>
           <h5>saveNewEvent</h5>
-          <p>This function is created to allow the user to add new events to the data table. ID's are grabbed from the HTML document, then defined as variables so they can be combined into one object. New events are then given to the getEventData function through the push method. These added events are then stored on the browser's local storage. Finally, buildDropdown is called since this acts as the entry point function.</p>
+          <p>
+            This function is created to allow the user to add new events to the
+            data table. ID's are grabbed from the HTML document, then defined as
+            variables so they can be combined into one object. New events are
+            then given to the getEventData function through the push method.
+            These added events are then stored on the browser's local storage.
+            Finally, buildDropdown is called since this acts as the entry point
+            function.
+          </p>
         </div>
       </div>
     </main>
@@ -428,17 +460,11 @@ function saveNewEvent() {
             <img src="/img/logoDarkBG.jpg" height="50" />
           </div>
           <div class="col text-md-end">
-            <a href="https://linkedin.com/my-profile"
+            <a href="https://www.linkedin.com/in/ryan-doerr-39a23626b/"
               ><i class="socialicons bi bi-linkedin p-2"></i
             ></a>
-            <a href="https://github.com/my-profile"
+            <a href="https://github.com/rdoerr15"
               ><i class="socialicons bi bi-github p-2"></i
-            ></a>
-            <a href="https://twitter.com/my-profile"
-              ><i class="socialicons bi bi-twitter p-2"></i
-            ></a>
-            <a href="https://youtube.com/my-profile"
-              ><i class="socialicons bi bi-youtube p-2"></i
             ></a>
           </div>
           <div class="col text-light order-md-first text-md-start">
