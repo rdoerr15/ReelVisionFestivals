@@ -346,6 +346,7 @@ function saveNewEvent() {
             This code is structured into seven separate functions. The array of
             event data was provided by the event company.
           </p>
+          <hr>
           <h5>buildDropdown</h5>
           <p>
             This function starts by pulling the dropdownMenu element from the
@@ -367,6 +368,7 @@ function saveNewEvent() {
             loading the web page, a couple functions are called to display the
             stats and event data tables.
           </p>
+          <hr>
           <h5>displayEventData</h5>
           <p>
             This function starts by retrieving the event table and table row
@@ -377,12 +379,14 @@ function saveNewEvent() {
             rows in the table. AppendChild method is then utilized to place
             those rows into the event table on the webpage.
           </p>
+          <hr>
           <h5>calculateStats</h5>
           <p>
             This function is created to calculate specific stats that we want to
             add to the stats table. These stats are computed by utilizing for
             loops and if else statements.
           </p>
+          <hr>
           <h5>displayStats</h5>
           <p>
             This function is what allows the stats to be displayed on the page,
@@ -390,12 +394,14 @@ function saveNewEvent() {
             properties are then retrieved through a specific ID from the HTML
             document.
           </p>
+          <hr>
           <h5>getEventData</h5>
           <p>
             This function is created to get the data from the user's local
             browser storage, then converts it to a string through the
             JSON.stringify method.
           </p>
+          <hr>
           <h5>viewFilteredEvents</h5>
           <p>
             This function is created to allow the user to filter the stats table
@@ -405,6 +411,7 @@ function saveNewEvent() {
             city, the code will continue past the if statment and call the
             displayStats function with a paramter of filtered events.
           </p>
+          <hr>
           <h5>saveNewEvent</h5>
           <p>
             This function is created to allow the user to add new events to the
